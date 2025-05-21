@@ -7,8 +7,8 @@ Panel de control\Todos los elementos de Panel de control\Administrador de creden
 
 📦 RESUMEN RÁPIDO (puro comandos)
 
-git config --global user.name "TuNombreDeUsuarioGitHub"
-git config --global user.email "tu_correo@example.com"
+git config --global user.name "Andres66666"
+git config --global user.email "cya2024773@est.univalle.edu"
 
 git init
 git status
