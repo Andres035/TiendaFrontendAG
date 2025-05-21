@@ -11,12 +11,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/frontend-ag",
-            "baseHref": "/MicroblogginTalSphere/",
+            "outputPath": "dist/FrontendAG",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js",
               "@angular/localize/init"
@@ -114,6 +113,6 @@
     }
   },
   "cli": {
-    "analytics": "48f93b2f-78c9-40c6-93f3-2e00e304fc46"
+    "analytics": false
   }
 }
