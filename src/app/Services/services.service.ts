@@ -13,6 +13,8 @@ import {
 } from '../Models/models';
 import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { environment } from '../environments/environment';
+
 
 // Define una interfaz para la respuesta del login
 interface LoginResponse {
@@ -29,7 +31,9 @@ interface LoginResponse {
   providedIn: 'root',
 })
 export class ServicesService {
-  private apiUrl = 'http://localhost:8000/api/';
+  private apiUrl = environment.apiUrl; // Usar la URL del entorno
+  //private apiUrl = 'https://backenddj-goq1.onrender.com/api/';
+  //private apiUrl = 'http://localhost:8000/api/';
   private productosSubject = new BehaviorSubject<Producto[]>([]);
   productos$ = this.productosSubject.asObservable();
 
