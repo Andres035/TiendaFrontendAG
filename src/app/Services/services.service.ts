@@ -31,9 +31,9 @@ interface LoginResponse {
   providedIn: 'root',
 })
 export class ServicesService {
-  //private apiUrl = environment.apiUrl; // Usar la URL del entorno
+  
   private apiUrl = 'https://backenddj-goq1.onrender.com/api/';
-
+  //https://backenddj-goq1.onrender.com
   //private apiUrl = 'https://backenddj-goq1.onrender.com/api/';
   //private apiUrl = 'http://localhost:8000/api/';
   private productosSubject = new BehaviorSubject<Producto[]>([]);
