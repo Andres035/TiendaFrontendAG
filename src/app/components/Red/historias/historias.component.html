@@ -1,0 +1,39 @@
+<div class="container mt-4">
+    <div class="mb-3 text-center">
+        <label for="subirHistoria" class="form-label">Subir historia (imagen o video)</label>
+        <input type="file" accept="image/*,video/*" class="form-control" id="subirHistoria"
+            (change)="subirHistoria($event)" />
+    </div>
+
+    <div class="d-flex overflow-auto border p-2 rounded" style="white-space: nowrap;">
+        <div *ngFor="let historia of historias" class="me-2 text-center" style="min-width: 120px; cursor: pointer;"
+            (click)="abrirModal(historia)">
+            <div class="border rounded shadow-sm bg-light" style="height: 200px; width: 120px; overflow: hidden;">
+                <img *ngIf="historia.media?.startsWith('data:image')" [src]="historia.media"
+                    class="w-100 h-100 object-fit-cover" alt="Historia imagen" />
+                <video *ngIf="historia.media?.startsWith('data:video')" [src]="historia.media"
+                    class="w-100 h-100 object-fit-cover" muted loop preload="metadata"></video>
+            </div>
+            <small class="d-block mt-1 text-muted">{{ historia.fecha }}</small>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Bootstrap -->
+<div class="modal fade" id="modalHistoria" tabindex="-1" aria-labelledby="modalHistoriaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalHistoriaLabel">Historia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img *ngIf="modalMedia?.startsWith('data:image')" [src]="modalMedia" class="img-fluid"
+                    alt="Imagen ampliada" />
+                <video *ngIf="modalMedia?.startsWith('data:video')" [src]="modalMedia" class="w-100" controls
+                    autoplay></video>
+            </div>
+        </div>
+    </div>
+</div>
+  

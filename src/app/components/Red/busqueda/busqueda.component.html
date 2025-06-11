@@ -1,0 +1,31 @@
+<div class="container py-4">
+    <h4 class="mb-3">Buscar personas</h4>
+
+    <!-- Barra de búsqueda -->
+    <div class="input-group mb-4">
+        <input type="text" class="form-control" placeholder="Buscar por nombre..." [(ngModel)]="filtro" />
+        <span class="input-group-text bg-primary text-white"><i class="bi bi-search"></i></span>
+    </div>
+
+    <!-- Resultados -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let user of usuariosFiltrados">
+            <div class="card h-100 shadow-sm border-0">
+                <img [src]="user.perfilUrl" class="card-img-top" style="object-fit: cover; height: 200px;" />
+                <div class="card-body text-center">
+                    <h5 class="card-title mb-1">{{ user.nombre }}</h5>
+                    <p class="text-muted">{{ user.ubicacion }}</p>
+                    <div class="d-flex justify-content-center gap-2">
+                        <button class="btn btn-outline-success btn-sm">Agregar</button>
+                        <button class="btn btn-outline-primary btn-sm">Mensaje</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="usuariosFiltrados.length === 0" class="text-center text-muted">
+            <p>No se encontraron resultados</p>
+        </div>
+    </div>
+</div>
+  

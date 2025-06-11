@@ -32,6 +32,13 @@ import { ListarProductosEmpleadoComponent } from '../Productos/listar-productos-
 import { DashboardComponent } from '../Dashboard/dashboard/dashboard.component';
 import { PerfilComponent } from '../Usuarios/perfil/perfil.component';
 import { TargetasComponent } from '../CalculoTargetas/targetas/targetas.component';
+import { PublicacionesComponent } from "../Red/publicaciones/publicaciones.component";
+import { HistoriasComponent } from "../Red/historias/historias.component";
+import { NotificacionesComponent } from "../Red/notificaciones/notificaciones.component";
+import { MensajesComponent } from "../Red/mensajes/mensajes.component";
+import { AmigosComponent } from "../Red/amigos/amigos.component";
+import { BusquedaComponent } from "../Red/busqueda/busqueda.component";
+import { ConfiguracionesComponent } from "../Red/configuraciones/configuraciones.component";
 
 @Component({
   selector: 'app-panel-control',
@@ -66,7 +73,14 @@ import { TargetasComponent } from '../CalculoTargetas/targetas/targetas.componen
     DashboardComponent,
     PerfilComponent,
     TargetasComponent,
-  ],
+    PublicacionesComponent,
+    HistoriasComponent,
+    NotificacionesComponent,
+    MensajesComponent,
+    AmigosComponent,
+    BusquedaComponent,
+    ConfiguracionesComponent
+],
   templateUrl: './panel-control.component.html',
   styleUrl: './panel-control.component.css',
 })
@@ -192,7 +206,7 @@ export class PanelControlComponent implements OnInit {
       this.openSubmenu = menu; // Abre el submenú seleccionado
     }
   }
-  mostrarComponente(componente: string, id?: number) {
+/*   mostrarComponente(componente: string, id?: number) {
     this.componenteActual = componente; // Cambia el componente actual
     if (id) {
       this.idParaEditar = id; // Establece el ID si se proporciona
@@ -206,12 +220,19 @@ export class PanelControlComponent implements OnInit {
     } else if (componente.includes('Ventas')) {
       this.openSubmenu = 'VentasProductos'; // Mantiene abierto el submenú de Productos Ventas
     }
-  }
+  } */
   handleItemClick() {
     // Cierra el submenú si se hace clic en un elemento que no es un encabezado de submenú
     this.openSubmenu = null;
   }
-
+  
+  mostrarComponente(nombre: string, id?: number): void {
+    this.componenteActual = nombre;
+    if (id !== undefined) {
+      this.idParaEditar = id;
+    }
+  }
+  
   isSubmenuOpen(menu: string): boolean {
     return this.openSubmenu === menu; // Verifica si el submenú está abierto
   }

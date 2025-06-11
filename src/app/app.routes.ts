@@ -37,6 +37,14 @@ import { PerfilComponent } from './components/Usuarios/perfil/perfil.component';
 
 import { TargetasComponent } from './components/CalculoTargetas/targetas/targetas.component';
 
+import { PublicacionesComponent } from './components/Red/publicaciones/publicaciones.component';
+import { HistoriasComponent } from './components/Red/historias/historias.component';
+import { NotificacionesComponent } from './components/Red/notificaciones/notificaciones.component';
+import { MensajesComponent } from './components/Red/mensajes/mensajes.component';
+import { AmigosComponent } from './components/Red/amigos/amigos.component';
+import { BusquedaComponent } from './components/Red/busqueda/busqueda.component';
+import { ConfiguracionesComponent } from './components/Red/configuraciones/configuraciones.component';
+
 export const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'login', component: LoginComponent },
@@ -250,4 +258,48 @@ export const routes: Routes = [
     canActivate: [authGuard],
     data: { roles: ['admin540'], permisos: ['permiso540'] },
   },
+  {
+    path: 'publicaciones',
+    component: PublicacionesComponent,
+    canActivate: [authGuard],
+    data: { roles: ['admin540'], permisos: ['permiso540'] },
+  },
+  {
+    path: 'historias',
+    component: HistoriasComponent,
+    canActivate: [authGuard],
+    data: { roles: ['admin540'], permisos: ['permiso540'] },
+  },
+  {
+    path: 'notificaciones',
+    component: NotificacionesComponent,
+    canActivate: [authGuard],
+    data: { roles: ['admin540'], permisos: ['permiso540'] },
+  },
+  {
+    path: 'mensajes',
+    component: MensajesComponent,
+    canActivate: [authGuard],
+    data: { roles: ['admin540'], permisos: ['permiso540'] },
+  },
+  {
+    path: 'amigos',
+    component: AmigosComponent,
+    canActivate: [authGuard],
+    data: { roles: ['admin540'], permisos: ['permiso540'] },
+  },
+  {
+    path: 'busqueda',
+    component: BusquedaComponent,
+    canActivate: [authGuard],
+    data: { roles: ['admin540'], permisos: ['permiso540'] },
+  },
+  {
+    path: 'configuraciones',
+    component: ConfiguracionesComponent,
+    canActivate: [authGuard],
+    data: { roles: ['admin540'], permisos: ['permiso540'] },
+  },
+
+
 ];

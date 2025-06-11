@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="row vh-100">
+        <!-- Lista de chats -->
+        <div class="col-md-4 border-end bg-white overflow-auto" style="max-height: 100vh;">
+            <h5 class="p-3 border-bottom">Mensajes</h5>
+            <ul class="list-group list-group-flush">
+                <li *ngFor="let convo of conversaciones"
+                    class="list-group-item list-group-item-action d-flex align-items-center" style="cursor: pointer;"
+                    (click)="seleccionarConversacion(convo)">
+                    <img [src]="convo.perfilUrl" alt="Perfil" class="rounded-circle me-3"
+                        style="width: 50px; height: 50px; object-fit: cover;" />
+                    <div>
+                        <strong>{{ convo.nombre }}</strong>
+                        <p class="mb-0 text-muted" style="font-size: 0.875rem;">
+                            {{ convo.mensajes[convo.mensajes.length - 1].texto | slice:0:25 }}...
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Chat actual -->
+        <div class="col-md-8 bg-light d-flex flex-column" *ngIf="conversacionSeleccionada">
+            <div class="border-bottom p-3 bg-white">
+                <h5 class="mb-0">{{ conversacionSeleccionada.nombre }}</h5>
+            </div>
+
+            <div class="flex-grow-1 p-3 overflow-auto">
+                <div *ngFor="let mensaje of conversacionSeleccionada.mensajes" class="mb-3">
+                    <div [ngClass]="{
+                'text-end': mensaje.de === 'yo',
+                'text-start': mensaje.de === 'otro'
+              }">
+                        <div [ngClass]="{
+                  'bg-primary text-white': mensaje.de === 'yo',
+                  'bg-white border': mensaje.de === 'otro'
+                }" class="d-inline-block p-2 rounded" style="max-width: 75%;">
+                            {{ mensaje.texto }}
+                        </div>
+                        <div class="text-muted small mt-1">{{ mensaje.hora }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input simulado (no funcional por ahora) -->
+            <div class="border-top bg-white p-3">
+                <input type="text" class="form-control" placeholder="Escribe un mensaje..." disabled />
+            </div>
+        </div>
+
+        <!-- Vista inicial si no hay conversación seleccionada -->
+        <div class="col-md-8 d-flex justify-content-center align-items-center bg-light"
+            *ngIf="!conversacionSeleccionada">
+            <p class="text-muted">Selecciona un chat para ver los mensajes</p>
+        </div>
+    </div>
+</div>
+  

@@ -1,0 +1,38 @@
+<div class="container mt-3">
+    <h3>Notificaciones</h3>
+    <ul class="list-group">
+        <li *ngFor="let noti of notificaciones" class="list-group-item d-flex align-items-start"
+            [class.bg-light]="noti.leida === false && noti.tipo === 'mensaje'" style="cursor: pointer;"
+            (click)="noti.tipo === 'mensaje' ? toggleMensaje(noti.id) : null">
+            <img *ngIf="noti.perfilUrl" [src]="noti.perfilUrl" alt="Perfil" class="rounded-circle me-3"
+                style="width: 50px; height: 50px; object-fit: cover;" />
+            <div class="flex-grow-1">
+                <div class="d-flex justify-content-between">
+                    <strong>{{ noti.usuario }}</strong>
+                    <small class="text-muted">{{ noti.fecha }}</small>
+                </div>
+                <p class="mb-1">{{ noti.texto }}</p>
+
+                <!-- Si es mensaje y está abierto, mostrar mensaje completo -->
+                <div *ngIf="noti.tipo === 'mensaje' && mensajeAbiertoId === noti.id"
+                    class="border rounded p-2 bg-white">
+                    {{ noti.mensajeCompleto }}
+                </div>
+
+                <!-- Iconos por tipo -->
+                <div *ngIf="noti.tipo !== 'mensaje'" class="mt-1">
+                    <span *ngIf="noti.tipo === 'me-gusta'" class="text-primary">
+                        <i class="bi bi-hand-thumbs-up-fill"></i> Me gusta
+                    </span>
+                    <span *ngIf="noti.tipo === 'solicitud-amistad'" class="text-success">
+                        <i class="bi bi-person-plus-fill"></i> Solicitud de amistad
+                    </span>
+                    <span *ngIf="noti.tipo === 'otro'" class="text-secondary">
+                        <i class="bi bi-info-circle-fill"></i> Info
+                    </span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+  

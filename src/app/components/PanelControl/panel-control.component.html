@@ -298,6 +298,15 @@
           (registrar)="mostrarComponente('registrarUsuarios')"
           (editar)="mostrarComponente('EditarUsuario', $event)"
         />
+        <!-- Secciones nuevas -->
+        <app-publicaciones *ngSwitchCase="'MisPublicaciones'" />
+        <app-historias *ngSwitchCase="'MisHistorias'" />
+        <app-notificaciones *ngSwitchCase="'Notificaciones'" />
+        <app-mensajes *ngSwitchCase="'Mensajes'" />
+        <app-amigos *ngSwitchCase="'Amigos'" />
+        <app-busqueda *ngSwitchCase="'Buscar'" />
+        <app-configuraciones *ngSwitchCase="'Configuracion'" />
+
         <app-registrar-usuario
           *ngSwitchCase="'registrarUsuarios'"
           (listarUsuario)="mostrarComponente('VerUsuario')"
