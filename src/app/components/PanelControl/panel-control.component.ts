@@ -206,21 +206,7 @@ export class PanelControlComponent implements OnInit {
       this.openSubmenu = menu; // Abre el submenú seleccionado
     }
   }
-/*   mostrarComponente(componente: string, id?: number) {
-    this.componenteActual = componente; // Cambia el componente actual
-    if (id) {
-      this.idParaEditar = id; // Establece el ID si se proporciona
-    }
 
-    // Mantener el submenú abierto si se selecciona un componente dentro de su grupo
-    if (componente.includes('Usuario')) {
-      this.openSubmenu = 'usuarios'; // Mantiene abierto el submenú de Usuarios
-    } else if (componente.includes('Prestamos')) {
-      this.openSubmenu = 'prestamos'; // Mantiene abierto el submenú de Préstamos
-    } else if (componente.includes('Ventas')) {
-      this.openSubmenu = 'VentasProductos'; // Mantiene abierto el submenú de Productos Ventas
-    }
-  } */
   handleItemClick() {
     // Cierra el submenú si se hace clic en un elemento que no es un encabezado de submenú
     this.openSubmenu = null;
