@@ -32,8 +32,8 @@ interface LoginResponse {
 })
 export class ServicesService {
   
-  private apiUrl = 'https://backenddj-1qj9.onrender.com/api/';
-  /* https://backenddj-5fgd.onrender.com */
+  private apiUrl = 'https://backenddj-1.onrender.com/api/';
+  /* https://backenddj-5fgd.onrender.com    https://backenddj-1.onrender.com*/
   private productosSubject = new BehaviorSubject<Producto[]>([]);
   productos$ = this.productosSubject.asObservable();
 
