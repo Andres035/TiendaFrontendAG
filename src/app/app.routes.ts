@@ -44,6 +44,7 @@ import { MensajesComponent } from './components/Red/mensajes/mensajes.component'
 import { AmigosComponent } from './components/Red/amigos/amigos.component';
 import { BusquedaComponent } from './components/Red/busqueda/busqueda.component';
 import { ConfiguracionesComponent } from './components/Red/configuraciones/configuraciones.component';
+import { IaComponent } from './components/ia/ia.component';
 
 export const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -300,6 +301,10 @@ export const routes: Routes = [
     canActivate: [authGuard],
     data: { roles: ['admin540'], permisos: ['permiso540'] },
   },
-
-
+  {
+    path: 'ia',
+    component: IaComponent,
+    canActivate: [authGuard],
+    data: { roles: ['admin540'], permisos: ['permiso540'] },
+  },
 ];
